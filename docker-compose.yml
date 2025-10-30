@@ -37,9 +37,10 @@ services:
         condition: service_healthy
     environment:
       NODE_ENV: production
-      PORT: 3000
+      PORT: 8080
       DATABASE_URL: mysql://${DB_USER:-ict_eerbeek_user}:${DB_PASSWORD}@db:3306/${DB_NAME:-ict_eerbeek}
       JWT_SECRET: ${JWT_SECRET}
+      USE_LOCAL_AUTH: ${USE_LOCAL_AUTH:-true}
       VITE_APP_ID: ${VITE_APP_ID}
       OAUTH_SERVER_URL: ${OAUTH_SERVER_URL:-https://api.manus.im}
       VITE_OAUTH_PORTAL_URL: ${VITE_OAUTH_PORTAL_URL:-https://portal.manus.im}
@@ -52,7 +53,7 @@ services:
       VITE_ANALYTICS_ENDPOINT: ${VITE_ANALYTICS_ENDPOINT:-}
       VITE_ANALYTICS_WEBSITE_ID: ${VITE_ANALYTICS_WEBSITE_ID:-}
     ports:
-      - "3000:3000"
+      - "3000:8080"
     networks:
       - ict-eerbeek-network
     volumes:
