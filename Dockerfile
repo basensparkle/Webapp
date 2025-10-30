@@ -56,7 +56,8 @@ COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
 COPY --from=builder --chown=nodejs:nodejs /app/server ./server
 COPY --from=builder --chown=nodejs:nodejs /app/drizzle ./drizzle
 COPY --from=builder --chown=nodejs:nodejs /app/shared ./shared
-COPY --from=builder --chown=nodejs:nodejs /app/storage ./storage
+# Create storage directory (for uploads)
+RUN mkdir -p storage && chown nodejs:nodejs storage
 
 # Copy public assets
 COPY --chown=nodejs:nodejs client/public ./client/public
