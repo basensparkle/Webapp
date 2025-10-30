@@ -58,12 +58,12 @@ COPY --chown=nodejs:nodejs client/public ./client/public
 # Switch to non-root user
 USER nodejs
 
-# Expose application port
-EXPOSE 3000
+# Expose application port (Cloud Run uses PORT env variable)
+EXPOSE 8080
+ENV PORT=8080
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+# Health check removed - Cloud Run handles this automatically
 
 # Start the application
-CMD ["node", "server/index.js"]
+CMD ["node", "dist/index.js"]
