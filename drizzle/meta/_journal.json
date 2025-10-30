@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1761773383645,
+      "tag": "0000_eager_mulholland_black",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1761773460143,
+      "tag": "0001_loose_pete_wisdom",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1761859077781,
+      "tag": "0002_secret_gamora",
+      "breakpoints": true
+    }
+  ]
+}
